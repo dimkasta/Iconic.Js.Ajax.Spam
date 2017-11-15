@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "target": "es5",
+    "sourceMap": false,
+    "outFile": "IconicJsSpam.js"
+  },
+  "files": [
+    "IconicJsSpamPost.ts",
+    "IconicJsSpamRequest.ts",
+    "IconicJsSpam.ts"
+  ]
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+This should work on Webstorm. check console and network on dev tools
+<script src="IconicJsSpam.js"></script>
+
+<br><br>
+
+<a href="#" class="spam">Spam</a>
+
+<script>
+    $(function() {
+        var debug = false;
+        var spammer = new IconicJsSpam(debug);
+
+        success = function(data, request) {
+            console.log("Request " + request.serial + " callback called");
+            console.log(data);
+        };
+
+        update = function() {
+            console.log("Got update callback " + spammer.pending);
+        };
+
+        error = function() {
+            console.log("Received error");
+        };
+
+        //Get test
+//        $(".spam").on("click", function(data) {
+//            var request = new IconicJsSpamRequest(spammer, "http://localhost:63342/IconicJsAjaxSpam/result.json", debug,
+//                success,
+//                update,
+//                error)
+//        });
+
+        //post test
+        var formData = [test = "omg"];
+        $(".spam").on("click", function(data) {
+            var request = new IconicJsSpamPost(spammer, "http://localhost:63342/IconicJsAjaxSpam/result.json", formData, debug,
+                success,
+                update,
+                error)
+        });
+    });
+</script>
+</body>
+</html>
