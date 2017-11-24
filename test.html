@@ -11,7 +11,7 @@ This should work on Webstorm. check console and network on dev tools
 
 <br><br>
 
-<a href="#" class="spam">Spam</a>
+<a href="#" class="spam" data-protection="9jm75fcn32q5ngfy43nfgy43">Spam</a>
 
 <script>
     $(function() {
@@ -40,9 +40,11 @@ This should work on Webstorm. check console and network on dev tools
 //        });
 
         //post test
-        var formData = [test = "omg"];
+
         $(".spam").on("click", function(data) {
-            var request = new IconicJsSpamPost(spammer, "http://localhost:63342/IconicJsAjaxSpam/result.json", formData, debug,
+            var protection = $(this).data("protection");
+            var formData = {protection: protection};
+            var request = new IconicJsSpamPost(spammer, "http://localhost:63342/IconicJsAjaxSpam/result.json", "DELETE", formData, debug,
                 success,
                 update,
                 error)

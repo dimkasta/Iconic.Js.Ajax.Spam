@@ -2,7 +2,7 @@
 class IconicJsSpamPost {
     public serial: number;
 
-    constructor(jsSpamService: IconicJsSpam,url,  formData, debug: boolean, successCallback, updateCallback, errorCallback) {
+    constructor(jsSpamService: IconicJsSpam, url, method, formData, debug: boolean, successCallback, updateCallback, errorCallback) {
         // get new serial
         this.serial = jsSpamService.getNewSerial();
 
@@ -22,8 +22,13 @@ class IconicJsSpamPost {
         }
 
         //start a new ajax request and assign the xhr to the service
-        jsSpamService.xhr = $.post(url, formData, function (data, status, xhr){})
-
+        jsSpamService.xhr = $.ajax({
+            url: url,
+            type: method,
+            data: formData,
+            success: function (data, status, xhr) {
+            }
+        })
             .done(function(data) { //if ok
                 // if this serial is equal to the serial stored as last
             if (self.serial == jsSpamService.serial) {
